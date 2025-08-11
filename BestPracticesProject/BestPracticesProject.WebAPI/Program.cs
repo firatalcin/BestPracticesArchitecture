@@ -1,4 +1,5 @@
 using BestPracticesProject.Repositories;
+using BestPracticesProject.Repositories.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,12 +10,7 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-builder.Services.AddDbContext<AppDbContext>(opt =>
-{
-    var connectionStrings = builder.Configuration.GetSection(ConnectionStringOption.Key).Get<ConnectionStringOption>();
-
-    opt.UseSqlServer(connectionStrings!.SqlConnection);
-});
+builder.Services.AddRepositories(builder.Configuration);
 
 
 var app = builder.Build();
