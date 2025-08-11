@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BestPracticesProject.Repositories
+namespace BestPracticesProject.Repositories.Products
 {
     public class ProductConfiguration : IEntityTypeConfiguration<Product>
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BestPracticesProject.Repositories
+namespace BestPracticesProject.Repositories.Products
 {
     public class Product
     {
