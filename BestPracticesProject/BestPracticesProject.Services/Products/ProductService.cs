@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BestPracticesProject.Services
+namespace BestPracticesProject.Services.Products
 {
-    internal class ProductService(IProductRepository productRepository)
+    public class ProductService(IProductRepository productRepository) : IProductService
     {
     }
 }
