@@ -1,4 +1,7 @@
-﻿using BestPracticesProject.Repositories.Products;
+﻿using BestPracticesProject.Repositories;
+using BestPracticesProject.Repositories.Products;
+using BestPracticesProject.Services.Products.Create;
+using BestPracticesProject.Services.Products.Update;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,22 +10,41 @@ using System.Threading.Tasks;
 
 namespace BestPracticesProject.Services.Products
 {
-    public class ProductService(IProductRepository productRepository) : IProductService
+    public class ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork) : IProductService
     {
-        public async Task<ServiceResult<List<Product>>> GetTopPriceProductsAsync(int count)
+        public Task<ServiceResult<CreateProductResponse>> CreateAsync(CreateProductRequest request)
         {
-            var products = await productRepository.GetTopPriceProductsAsync(count);
-            return new ServiceResult<List<Product>> { Data = products };
+            throw new NotImplementedException();
         }
 
-        public async Task<ServiceResult<Product?>> GetByIdAsync(int id)
+        public Task<ServiceResult> DeleteAsync(int id)
         {
-            var product = await productRepository.GetByIdAsync(id);
-            if (product == null)
-            {
-                return new ServiceResult<Product?> { ErrorMessage = new List<string> { "Product not found" } };
-            }
-            return new ServiceResult<Product?> { Data = product };
+            throw new NotImplementedException();
+        }
+
+        public Task<ServiceResult<List<ProductDto>>> GetAllListAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ServiceResult<ProductDto?>> GetByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ServiceResult<List<ProductDto>>> GetPagedAllListAsync(int pageNumber, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ServiceResult<List<ProductDto>>> GetTopPriceProductsAsync(int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ServiceResult> UpdateAsync(int id, UpdateProductRequest request)
+        {
+            throw new NotImplementedException();
         }
     }
 }
