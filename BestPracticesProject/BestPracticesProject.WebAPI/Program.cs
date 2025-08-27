@@ -1,7 +1,5 @@
-using BestPracticesProject.Repositories;
 using BestPracticesProject.Repositories.Extensions;
 using BestPracticesProject.Services.Extensions;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
