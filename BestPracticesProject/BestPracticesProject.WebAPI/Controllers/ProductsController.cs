@@ -10,10 +10,10 @@ namespace BestPracticesProject.WebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return CreateActionResult(await productService.GetAllListAsync(););
+            return CreateActionResult(await productService.GetAllListAsync());
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             return CreateActionResult(await productService.GetByIdAsync(id));
@@ -25,13 +25,13 @@ namespace BestPracticesProject.WebAPI.Controllers
             return CreateActionResult(await productService.CreateAsync(request));
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, UpdateProductRequest request)
         {
             return CreateActionResult(await productService.UpdateAsync(id, request));
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             return CreateActionResult(await productService.DeleteAsync(id));
