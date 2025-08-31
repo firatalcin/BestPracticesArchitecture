@@ -17,7 +17,7 @@ namespace BestPracticesProject.WebAPI.Controllers
             
             if(result.Status == System.Net.HttpStatusCode.Created)
             {
-                return Created(result.UrlAsCreated, result.Data);
+                return Created(result.UrlAsCreated, result );
             }
 
             return new ObjectResult(result) { StatusCode = result.Status.GetHashCode() };

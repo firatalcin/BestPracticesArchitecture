@@ -1,11 +1,8 @@
 ﻿using BestPracticesProject.Services.Products;
+using FluentValidation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace BestPracticesProject.Services.Extensions
 {
@@ -14,6 +11,7 @@ namespace BestPracticesProject.Services.Extensions
         public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IProductService, ProductService>();
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             return services;
         }
     }
