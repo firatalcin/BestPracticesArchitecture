@@ -2,6 +2,7 @@
 using BestPracticesProject.Repositories.Products;
 using BestPracticesProject.Services.Products.Create;
 using BestPracticesProject.Services.Products.Update;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,9 +33,15 @@ namespace BestPracticesProject.Services.Products
             throw new NotImplementedException();
         }
 
-        public Task<ServiceResult<List<ProductDto>>> GetPagedAllListAsync(int pageNumber, int pageSize)
+        public async Task<ServiceResult<List<ProductDto>>> GetPagedAllListAsync(int pageNumber, int pageSize)
         {
-            throw new NotImplementedException();
+            var product = await productRepository.GetAll()
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .Select(p => new ProductDto(p.Id, p.Name, p.Price, p.Stock))
+                .ToListAsync();
+
+            return ServiceResult<List<ProductDto>>.Success(product);
         }
 
         public Task<ServiceResult<List<ProductDto>>> GetTopPriceProductsAsync(int count)
