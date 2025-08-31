@@ -12,7 +12,12 @@ namespace BestPracticesProject.WebAPI.Controllers
         {
             if (result.Status == System.Net.HttpStatusCode.NoContent)
             {
-                return new ObjectResult(null) { StatusCode = result.Status.GetHashCode() };
+                return NoContent();
+            }
+            
+            if(result.Status == System.Net.HttpStatusCode.Created)
+            {
+                return Created(result.UrlAsCreated, result.Data);
             }
 
             return new ObjectResult(result) { StatusCode = result.Status.GetHashCode() };

@@ -13,9 +13,18 @@ namespace BestPracticesProject.Services.Products
 {
     public class ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork) : IProductService
     {
-        public Task<ServiceResult<CreateProductResponse>> CreateAsync(CreateProductRequest request)
+        public async Task<ServiceResult<CreateProductResponse>> CreateAsync(CreateProductRequest request)
         {
-            throw new NotImplementedException();
+            var product = new Product
+            {
+                Name = request.Name,
+                Price = request.Price,
+                Stock = request.Stock
+            };
+
+            await productRepository.AddAsync(product);
+            await unitOfWork.SaveChangesAsync();
+            return ServiceResult<CreateProductResponse>.SuccessAsCreated(new CreateProductResponse(product.Id),$"api/products/{product.Id}");
         }
 
         public Task<ServiceResult> DeleteAsync(int id)
@@ -41,7 +50,7 @@ namespace BestPracticesProject.Services.Products
                 .Select(p => new ProductDto(p.Id, p.Name, p.Price, p.Stock))
                 .ToListAsync();
 
-            return ServiceResult<List<ProductDto>>.Success(product);
+            return ServiceResult<List<ProductDto>>.Success(product);k
         }
 
         public Task<ServiceResult<List<ProductDto>>> GetTopPriceProductsAsync(int count)

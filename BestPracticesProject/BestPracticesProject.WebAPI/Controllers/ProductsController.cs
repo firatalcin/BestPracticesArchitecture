@@ -26,7 +26,7 @@ namespace BestPracticesProject.WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Save(CreateProductRequest request)
+        public async Task<IActionResult> Create(CreateProductRequest request)
         {
             return CreateActionResult(await productService.CreateAsync(request));
         }
