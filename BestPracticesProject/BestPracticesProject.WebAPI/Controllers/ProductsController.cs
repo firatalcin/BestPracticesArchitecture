@@ -13,13 +13,13 @@ namespace BestPracticesProject.WebAPI.Controllers
             return CreateActionResult(await productService.GetAllListAsync());
         }
 
-        [HttpGet("{pageNumber}/{pageSize}")]
+        [HttpGet("{pageNumber:int}/{pageSize:int}")]
         public async Task<IActionResult> GetPagedAll(int pageNumber, int pageSize)
         {
             return CreateActionResult(await productService.GetPagedAllListAsync(pageNumber,pageSize));
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
             return CreateActionResult(await productService.GetByIdAsync(id));
@@ -31,7 +31,7 @@ namespace BestPracticesProject.WebAPI.Controllers
             return CreateActionResult(await productService.CreateAsync(request));
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public async Task<IActionResult> Update(int id, UpdateProductRequest request)
         {
             return CreateActionResult(await productService.UpdateAsync(id, request));
@@ -43,7 +43,7 @@ namespace BestPracticesProject.WebAPI.Controllers
             return CreateActionResult(await productService.UpdateStockAsync(request));
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {
             return CreateActionResult(await productService.DeleteAsync(id));
