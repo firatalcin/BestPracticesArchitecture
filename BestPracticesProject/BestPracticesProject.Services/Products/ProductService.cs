@@ -62,5 +62,22 @@ namespace BestPracticesProject.Services.Products
         {
             throw new NotImplementedException();
         }
+
+        public async Task<ServiceResult> UpdateStockAsync(UpdateProductStockRequest request)
+        {
+            var product = await productRepository.GetByIdAsync(request.ProductId);
+
+            if (product is null)
+            {
+                return ServiceResult.Fail("Product not found", System.Net.HttpStatusCode.NotFound);
+            }
+
+            product.Stock = request.Quantity;
+
+            productRepository.Update(product);
+            await unitOfWork.SaveChangesAsync();
+
+            return ServiceResult.Success(System.Net.HttpStatusCode.NoContent);
+        }
     }
 }

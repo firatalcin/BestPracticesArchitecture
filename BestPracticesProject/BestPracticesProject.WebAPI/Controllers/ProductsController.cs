@@ -37,6 +37,12 @@ namespace BestPracticesProject.WebAPI.Controllers
             return CreateActionResult(await productService.UpdateAsync(id, request));
         }
 
+        [HttpPatch("stock")]
+        public async Task<IActionResult> UpdateStock(UpdateProductStockRequest request)
+        {
+            return CreateActionResult(await productService.UpdateStockAsync(request));
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
