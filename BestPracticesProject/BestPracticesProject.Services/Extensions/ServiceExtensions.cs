@@ -12,6 +12,7 @@ namespace BestPracticesProject.Services.Extensions
         {
             services.AddScoped<IProductService, ProductService>();
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;
         }
     }
