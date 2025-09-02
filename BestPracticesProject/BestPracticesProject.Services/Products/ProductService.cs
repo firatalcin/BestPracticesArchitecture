@@ -5,16 +5,11 @@ using BestPracticesProject.Services.Products.Create;
 using BestPracticesProject.Services.Products.Update;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BestPracticesProject.Services.Products
 {
-    public class ProductServiceProductService(
+    public class ProductService(
         IProductRepository productRepository,
         IUnitOfWork unitOfWork,
         IValidator<CreateProductRequest> createProductRequestValidator,

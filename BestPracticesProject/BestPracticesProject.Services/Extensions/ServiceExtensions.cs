@@ -1,4 +1,5 @@
-﻿using BestPracticesProject.Services.Products;
+﻿using BestPracticesProject.Services.ExceptionHandlers;
+using BestPracticesProject.Services.Products;
 using FluentValidation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +14,9 @@ namespace BestPracticesProject.Services.Extensions
             services.AddScoped<IProductService, ProductService>();
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddExceptionHandler<CriticalExceptionHandler>();
+            services.AddExceptionHandler<GlobalExceptionHandler>();
+
             return services;
         }
     }
