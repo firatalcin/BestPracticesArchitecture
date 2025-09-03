@@ -1,0 +1,13 @@
+﻿using BestPracticesProject.Repositories.Products;
+
+namespace BestPracticesProject.Repositories.Categories
+{
+    public class Category : BaseEntity<int>
+    {
+        public string Name { get; set; } = default!;
+
+        public List<Product>? Products { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime? Updated { get; set; }
+    }
+}
