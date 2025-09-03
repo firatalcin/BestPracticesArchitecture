@@ -3,6 +3,7 @@ using BestPracticesProject.Repositories;
 using BestPracticesProject.Repositories.Products;
 using BestPracticesProject.Services.Products.Create;
 using BestPracticesProject.Services.Products.Update;
+using BestPracticesProject.Services.Products.UpdateStock;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
@@ -175,6 +176,6 @@ namespace BestPracticesProject.Services.Products
 
             var productsAsDto = mapper.Map<List<ProductDto>>(products);
             return ServiceResult<List<ProductDto>>.Success(productsAsDto);
-        }       
+        }
     }
 }
