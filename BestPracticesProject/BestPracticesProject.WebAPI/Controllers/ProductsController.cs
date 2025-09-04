@@ -1,6 +1,7 @@
 ﻿using BestPracticesProject.Services.Products;
 using BestPracticesProject.Services.Products.Create;
 using BestPracticesProject.Services.Products.Update;
+using BestPracticesProject.Services.Products.UpdateStock;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BestPracticesProject.WebAPI.Controllers
@@ -16,7 +17,7 @@ namespace BestPracticesProject.WebAPI.Controllers
         [HttpGet("{pageNumber:int}/{pageSize:int}")]
         public async Task<IActionResult> GetPagedAll(int pageNumber, int pageSize)
         {
-            return CreateActionResult(await productService.GetPagedAllListAsync(pageNumber,pageSize));
+            return CreateActionResult(await productService.GetPagedAllListAsync(pageNumber, pageSize));
         }
 
         [HttpGet("{id:int}")]

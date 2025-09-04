@@ -14,10 +14,10 @@ namespace BestPracticesProject.WebAPI.Controllers
             {
                 return NoContent();
             }
-            
-            if(result.Status == System.Net.HttpStatusCode.Created)
+
+            if (result.Status == System.Net.HttpStatusCode.Created)
             {
-                return Created(result.UrlAsCreated, result );
+                return Created(result.UrlAsCreated, result);
             }
 
             return new ObjectResult(result) { StatusCode = result.Status.GetHashCode() };

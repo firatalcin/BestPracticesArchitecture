@@ -1,19 +1,13 @@
 ﻿using AutoMapper;
 using BestPracticesProject.Repositories.Products;
-using BestPracticesProject.Services.Products;
 using BestPracticesProject.Services.Products.Create;
 using BestPracticesProject.Services.Products.Update;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BestPracticesProject.Services.Mapping
+namespace BestPracticesProject.Services.Products
 {
-    public class MappingProfile : Profile
+    public class ProductMappingProfile : Profile
     {
-        public MappingProfile()
+        public ProductMappingProfile()
         {
             CreateMap<Product, ProductDto>().ReverseMap();
 

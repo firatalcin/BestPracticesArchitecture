@@ -1,11 +1,6 @@
 ﻿using BestPracticesProject.Services.Products.Create;
 using BestPracticesProject.Services.Products.Update;
 using BestPracticesProject.Services.Products.UpdateStock;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BestPracticesProject.Services.Products
 {

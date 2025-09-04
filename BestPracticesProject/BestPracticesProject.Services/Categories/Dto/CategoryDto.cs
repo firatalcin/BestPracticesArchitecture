@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BestPracticesProject.Services.Categories.Dto
+﻿namespace BestPracticesProject.Services.Categories.Dto
 {
     public record CategoryDto(int Id, string Name);
 }
